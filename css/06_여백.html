@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여백</title>
+    <link rel="stylesheet" href="../assets/css/css06.css">
+</head>
+<body>
+    <h3># Margin</h3>
+    <ul>
+        <li>해당 요소의 border 바깥쪽의 여백</li>
+        <li>해당 요소와 다른 요소와의 거리를 결정</li>
+        <li>top margin과 bottom margin이 만나는 곳에서는 둘 중 더 높은 것만 적용된다.</li>
+        <li>margin을 auto로 설정하면 해당 요소를 가운데 정렬한다.</li>
+    </ul>
+
+    <div id="margin1" class="test-box">DIV1</div>
+    <div id="margin2" class="test-box">DIV2</div>
+    <div id="margin3" class="test-box">DIV3</div> 
+
+
+
+
+    <h3># Padding</h3> 
+    <ul>
+       <li>해당 요소의 border 안쪽의 여백</li>
+    </ul>
+    <div id="padding1" class="test-box">DIV1</div>
+    <div id="padding2" class="test-box">DIV2</div>
+    <div id="padding3" class="test-box">DIV3</div>
+
+    
+    <h3>#box-sizing: content-box</h3>
+    <p id="content-box" class="test-box test2">
+        size =<br>content-box + padding + border-width
+    </p>
+    
+    <hr>
+
+    <h3>#box-sizing: border-box</h3>
+    <p id="border-box" class="test-box test2">
+        Size =<br>width 와 height로 결정
+    </p> 
+
+</body>
+</html>

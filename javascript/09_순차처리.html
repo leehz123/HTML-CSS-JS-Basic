@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순차적으로 처리하기</title>
+    <link rel="stylesheet" href="../assets/css/js06.css">
+
+    <link rel="stylesheet" href="../assets/css/js09.css"> <!--연습문제 표 스타일링-->
+
+</head>
+<body>
+
+    <h3># 순차적으로 처리하기</h3>
+    <div id="out"></div>
+
+
+    <script>
+
+        const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+        const fruits = ['apple', 'banana', 'orange', 'kiwi', 'mango', 'pineapple'];
+        
+//_______________________________________________________________________________________________________________________________________________
+ 
+
+        //forEach - 배열의 모든 값을 순차적으로 해당 함수에 적용한다.
+        //          내부의 콜백함수에는 (값, 인덱스, 전체배열)이 전달된다.
+
+        numbers.forEach(f1);
+
+        function f1(value) {
+            print(`${value} * 2 = ${value*2}`);
+        }
+
+        //이렇게 안에 바로 선언하는 것도 가능
+        numbers.forEach(function f2(value){
+            print(`${value-5}`);
+        }); 
+        
+        /*
+        //f2는 지역함수라 밖에서 사용 불가. 어차피 밖에서 못 써서 이름이 필요 없음. f2 이름 생략 가능
+        numbers.forEach(function (value){
+            print(`${value-5}`);
+        });
+        */
+
+        numbers.forEach(function f3(value, index, arr){
+            console.log('콜백으로 받은 전체 배열 내용: ', arr);
+            print(`${index}번째 사람의 점수: ${value}`);
+        });
+
+
+        //foreach 에서는 print()를 넣어서 사용했었는데 map으로 하면 배열을 변수로 받아서 그 변수를 print()하면 됨
+        //Arrow Function (function 이름 필요 없고 화살표 써서 선언하는 방식)    
+        const numbers2 = numbers.map((value) => {
+            return value * 2;
+        });  //foreach와 다른 점은 얘도 배열로 리턴을 한다는 것
+        
+
+        //그리고 함수에 들어가는 실행문이 한 줄이고 그 한 줄이 return문인 경우 더 줄일 수 있음
+        //const numbers2 = numbers.map((value) => value * 2);  
+
+
+        const listItems = fruits.map((value)=>{
+            value = value +'_img.jpg';
+            return `<li>${value}</li>` //이렇게 li태그를 집어넣는 것도 가능
+        });
+
+
+
+        /*const fruitImages = fruits.map((values)=> {
+            return `<img src="../assets/images/${value}">`; //이미지 태그 넣는 것도 가능하고... 활용하기 나름이라는 거~
+            //fruits 배열에 images폴더에 있는 사진의 파일명들이 들어가 있어야겟쥐~
+        });*/
+
+ //_______________________________________________________________________________________________________________________________________________
+
+       
+        //map - 모든 값을 순차적으로 해당함수에 적용한 새로운 배열을 생성하여 반환한다.
+        const scores = ['90', 100, '99', 80, 88, '77', 66, '55', 33];
+        
+        //callbackfn 는 어차피 외부에서 호출하여 사용할 수 없으므로 이름이 필요 없다. (익명) (자바의 익명내부클래스 생각하셈)
+        const grades = scores.map(function(value, index, arr){
+            if(value>100 || value<0) { //scores에 문자도 있고 숫자도 있는데 자스는 다 비교 가능
+                return 'Z';
+            } else if(value >= 90) {
+                return 'A';
+            } else if (value >= 80) {
+                return 'B';
+            } else if (value >= 70) {
+                return 'C';
+            } else if (value >= 60) {
+                return 'D';
+            } else {
+                return 'F';
+            }
+        });
+        print(grades);
+        //이런 걸 매핑이라고 한다. 점수를 가지고 매핑하는 느낌
+      
+        print(numbers2); //Arrow Function 테스트 출력
+        print(listItems);
+
+        //foreach는 반환이 없음 걍 함수 사용하고 끝. map은 함수 사용해서 배열을 반환 
+        //콜백함수 : 내가 원할 떄 부르지 않는 함수. 무언가에 의해 계속 호출되고 있는 함수. 매개변수로 전달되는 함수 . 함수를 걍 매개변수로 전달하는 거. 
+
+
+        //innerHTML : 태그를 추가하면 태그가 적용된다. 
+        //innterText : 태그를 추가하면 태그가 적용되지 않는다. <br>태그 같은 거 사용 불가
+
+
+
+//_______________________________________________________________________________________________________________________________________________        
+
+
+        //filter - 배열의 모든 값들 중 특정 조건을 만족하는 값만 남긴 배열을 반환한다.
+        //          콜백은 boolean 결과를 리턴해야 한다. 
+
+        numbers.push(11, 13, 15, 17, 99, 18, 21, 23, 25, 9, 9, 8, 8);
+        const evens = numbers.filter((value) => value % 2 == 0);
+        const odds = numbers.filter((num) => num % 2 != 0);
+        print('짝수들 : ' + evens);
+        print('홀수들 : ' + odds);
+
+
+        print('====================================================================================================================');
+
+
+        /*
+        연습문제.
+        
+        1. 국어 영어 수학 랜덤 점수를 가진 학생 100 명을 자바스크립트 오브젝트로 생성한다.Math.random()
+        2. map을 이용해 모든학생들의 평균 점수 배열을 생성한다. 
+        3. filter를 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성하여 html테이블 태그로 출력한다. 
+        4. 평균 점수가 30점 이하인 학생은 빨간 글씨로 출력한다. (출력된 70점 이하의 학생들 중에서 30점 이하인 학생들만)
+        */
+
+
+        
+        //랜덤점수 만드는 함수
+        const getRandomScore = () => parseInt(Math.random() * 101); //100 아니고 101임 주의!
+        
+        //랜덤학생정보 만드는 함수
+        const getRandomStudent = (i) => {
+            return {
+                stuNum: i, 
+                kor: getRandomScore(), 
+                eng: getRandomScore(),
+                math: getRandomScore(),
+                getAvg : function() {
+                    return (this.kor+ this.eng+ this.math)/3;
+                    //this 안 써주면 kor, eng, math is not defined라고 에러 뜸. 왜지? 
+                }
+            };
+        };
+        
+        //랜덤학생정보 만드는 함수로 생성한 학생정보들을 담는 배열
+        let students = [];
+
+        //랜덤학생정보 만드는 함수로 100개의 학생정보를 만들어서 students배열에 담을 것
+        for(i=0; i<100; ++i) {
+            students.push(getRandomStudent(i));
+        }
+
+        // //랜덤학생정보100개가 담긴 students배열의 값들을 하나씩 꺼내서 출력해보기
+        // for(student of students) {
+        //     print(`학생${student.stuNum}: ${student.getAvg()}`); //아 제발 함수 사용할 땐 괄호 붙여라 좀
+        // }
+
+        //map을 이용해 나누기 편한 상태의 배열 생성
+        //랜덤학생정보100배열에서 학생의 stuNum과 평균만 뽑아서 배열로 만들고 그걸 또 stuAvgs 배열에 담기
+        const stuAvgs = students.map((student)=> [student.stuNum, student.getAvg()]);
+        //console.log(stuAvgs[0][0]); stuNum
+        //console.log(stuAvgs[0][1]); stuAvg()의 리턴값 이 제대로 담겼는지 확인
+
+        
+        //stuAvgs배열에서 평균점수가 70점 이하인 학생의 정보만 filter로 뽑아서 under70s배열로 반환
+        const under70s = stuAvgs.filter((stuAvg)=> {
+            return stuAvg[1] <= 70;
+        });
+
+        let under70sTable = '<table id="under70"><tr><th>학생</th><th>평균</th></tr>'
+        under70s.forEach((under70)=>{//forEach는 리턴값 없음 걍 값 하나씩 꺼내서 함수 적용하는 용도
+            //문자열은 +=로 추가 (배열은 .push()로 추가)
+            under70sTable += under70[1]<=30 ? '<tr class="danger">' : '<tr class="safe">';
+            under70sTable += `<td>학생${under70[0]}</td><td>${under70[1].toFixed(2)}</td>`;
+            under70sTable += '</tr>';
+        });
+
+        under70sTable += '</table>';
+        print(under70sTable);
+
+        function print(obj) {
+            document.getElementById('out').innerHTML += obj + '<br>';
+        }
+    </script>
+
+     
+</body>
+</html>

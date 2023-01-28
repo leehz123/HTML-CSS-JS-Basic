@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types </title>
+</head>
+<body>
+
+    <h3># 자바스크립트의 변수</h3>
+    <ul>
+        <li>자바스크립트에는 변수 타입이 없다.</li>
+        <li>var : 변수를 선언한다. (생략 가능)</li>
+        <li>let : 초기화 이후의 변경이 허용된 변수를 선언한다.</li>
+        <li>const : 초기화 이후에 변경이 금지된 변수를 선언한다.</li>
+    </ul>
+
+
+    <h3># 자바스크립트의 데이터 타입</h3>
+
+    <ul>
+        <li>number : 정수 실수 모두 포함</li>
+        <!--<li print(this)>number : 정수 실수 모두 포함</li> 이렇게 함수에 li 자신을 this로 보내줄 수도 있음-->
+        <li>string : 문자열</li>
+        <li>array : 배열</li>
+        <li>object : JavaScript object</li>
+    </ul>
+
+
+
+ 
+    <div id="out"></div>
+ 
+    <script>
+        const out = document.getElementById('out');
+        
+        function print(obj) {
+            out.innerHTML = obj; //obj 대신 amugeona 적어도 됨
+        }
+        
+        /*
+        var과 let은 자바 클래스의 멤변처럼 선언할 때 값을 넣지 않아도 됨
+        const는 넣어줘야 됨
+
+        var a; //일반 변수 선언 a=10; 으로 해도 됨 
+        let b; //이후에 변경이 가능한 변수
+        const c = 10; // const == 자바의 final 
+        */
+
+
+        a = 10;
+        let b = 10;
+        const c = 10;
+
+        a = 'hello';
+        b = 'good bye';
+        //c = 123; //const 로 선언한 변수는 나중에 변경할 수 없는데 에러가 안 뜨네? 
+        //자스의 단점 : 에러 표시가 대충이다. 그래서 본인이 실수를 안 한다는 가정 하에 정말 편한 언어
+
+        console.log('a : ', a);
+        console.log('b : ', b);
+        console.log('c : ', c);
+
+
+        /*자스는 프로그램 짜다가 실수하면 정말 끔찍함. 디버깅이 어려움 그니까 호흡을 짧게 가져가는 습관을 들여야 함*/
+        //타입스크립트가 자스를 에러표시 나도록 만든거
+        
+        console.log('typeof 1234 - ', typeof 1234);
+        console.log('typeof \'1234\' - ' + typeof '1234');
+        console.log('typeof 123.1234 - ', typeof 123.1234);
+
+        //Not a Number : 이것은 숫자가 아님
+        console.log('typeof NaN - ', typeof NaN);
+       
+        //Infinity :무한
+        console.log('typeof Infinity - ', typeof Infinity);
+        console.log('typeof -Infinity - ', typeof('string'/0)); //괄호쳐줘야 함
+
+
+        //배열은 object라고 나옴
+        const friends = ['임꺽정', '정발산', '산기슭', '슭곰발'];
+        //배열은 대괄호, 객체는 중괄호
+
+        console.log('typeof friends - ', typeof friends);
+        console.log(friends[0]);
+        console.log(friends[1]);
+        console.log(friends[2]);
+        console.log(friends[3]);
+        console.log(friends[4]); //undefined
+
+        console.log('type of undefined - ', typeof undefined); //undefined
+        console.log('type of Null - ', typeof Null); //object
+
+
+        //자바스크립트 객체(Javascript Object)
+        let hong = {
+            name : '홍길동', 
+            age : 22,
+            bloodtype : 'AB',
+            sayHi : function() {
+                console.log('hello~!! my name is ', this.name);
+                return 'success';
+            }
+        };
+    
+        console.log(hong['name']);
+        console.log(hong['age']);
+        console.log(hong['bloodtype']);
+        console.log(hong['sayHi']); //invoke(호출)하지 않은 함수 (함수 실행 x)
+        console.log(hong['sayHi']()); //invoke(호출)한 함수 (함수를 실행하고 리턴값 출력)
+        
+        //Javascript object 접근방법2
+        console.log('________________________');
+        console.log(hong.name);
+        console.log(hong.age);
+        console.log(hong.bloodtype);
+        console.log(hong.sayHi);
+        console.log(hong.sayHi());
+
+
+
+    </script>
+
+</body>
+</html>

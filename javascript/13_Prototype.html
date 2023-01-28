@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    
+    <h3># 자바스크립트에서 클래스와 인스턴스를 생성하기</h3>
+    <ul>
+        <li>자바스크립트에서 클래스를 정의 하면 해당 클래스의 원형을 프로토타입이라고 한다.</li>
+        <li>클래스 이름에 .을 찍고 prototype 필드를 이용해 클래스의 원형에 접근할 수 있다.</li>
+        <li>한 인스턴스를 통해 프로토타입을 수정하더라도 모든 인스턴스가 영향을 받는다.(static 같은 느낌)</li>
+    </ul>
+
+    <script>
+        //Javascript Constructor
+        //놀랍게도 펑션으로 클래스를 만든다
+        //자바스크립트의 '객체' 타입과 비슷하네 
+        function Coffee(name, price, ice) {
+            this.name = name;
+            this.price = price;
+            this.ice = ice;
+
+            //Javascript overriding (클래스 안에서 오버라이딩하기)
+            this.toString = function () { //여기가 가장 가까운 오버라이딩. 프로토타입으로 아무리 수정해도 이게 최우선시됨. 
+                return `I am toString`;
+            }
+            //이 영역과 프로토타입 영역은 별개의 영역이래
+            //그러면 원형이라기보단 한 계층이 더 있다고 보면 된대
+            //다시 말해 프로토타입으로 클래스를 수정하는 건 안 되고 프로토타입 수정은 가능하다.
+        }
+
+        // 인스턴스 생성
+        const c1 = new Coffee('아메리카노', 1700, true);
+        const c2 = new Coffee('카페라떼', 2200); //ice : undefined
+
+        console.log(c1);
+        console.log(c2);
+
+        
+        console.log(c1.prototype);//인스턴스로는 접근이 안 되고 
+
+
+        //위쪽에서는 안 됨. 아직 안 만들어졌으니까.
+        // c1.drink();
+        // c2.drink();
+
+
+        //console.dir : 해당 요소를 좀 더 계층적으로 볼 수 있다. length: 매개변수의 갯수 (어따씀) 
+        console.dir(Coffee);
+        console.log(Coffee.prototype);//클래스명에 .을 찍고 prototype필드를 이용해 프로토타입 원형에 접근
+
+        //아까 만들었던 프로토타입을 통해 아까 만들었던 클래스를 직접 수정할 수 있다.
+        Coffee.prototype.drink = function () {
+        
+          console.log('프로토타입으로 추가되었습니다.');
+          //ArrowFunction으로는 인스턴스 활용이 안 되므로 반드시 function키워드를 이용해야 한다. 대신 뭔가를 추가하고 수정하는 것이 프로토타입.  
+          console.log('name: ', this.name);
+          console.log('price: ', this.price);
+          console.log('ice: ', this.ice);
+        };
+
+        
+        
+        //Javascript overriding(프로토타입으로 오버라이딩하기)
+        //근데 이런 복잡스런 문법이 있지만, 애초에 객지에서는 수정할 일이 없도록 만들어놓지. 다 같이 하는 곳에다 이런 짓을 하면 엄청 일이 복잡해지겠찌
+        Coffee.prototype.toString = function() {
+            return `${this.name}[${this.price}]`; //그리고 this. 꼭 써줘야 됨. 엄격하네 자동으로 부모를 찾아가지 않는대. 먼소리지
+            //일단 자기걸 먼저 찾고 그 담에 부모걸 찾는대
+        };
+
+
+        //해당 인스턴스를 수정하는 것도 가능하다. 하지만 이렇게 바꾸면 c1만 바뀌고 c2는 바뀌지 않는다. 
+        //이런 면에선 static이랑 다르다. 
+        c1.toString = function() {
+            return `modefied toString`
+        };
+
+        c1.drink();
+        c2.drink();
+
+        //우리가 아는 객체지향과는 좀 다른 모습을 띄고 있다.
+        console.dir(c1);//프로토타입에 drink가 추가 돼 있지
+        
+        //toString을 console.log에서 저절로 호출하진 않네 
+        console.log(c1.toString());
+        console.log(c2.toString());
+        
+
+        //프로토타입은 인스턴스에서 접근 불가. 
+        // console.log(c1.prototype.toString = function() {
+        //     //따라서 이런식으로도 불가능
+        // });
+
+
+
+        //생성자쪽에 있는 toString오버라이드 도 안 되네 
+        c1.constructor.toString = function() {
+            return `Modified Constructor toString.`;
+        };
+        //이렇게 해도 안 됨
+        Coffee.constructor.toString = function() {
+            return `Modified Constructor toString.`;
+        };
+        console.log(c1.toString());
+        console.log(c2.toString());
+       
+        //결국 컨스트럭터로 수정하는 건 안 된다 는 결론
+        const c3 = new Coffee('Mocha', 3300, false);
+        console.log(c3.toString());
+    </script>
+
+</body>
+</html>

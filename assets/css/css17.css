@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+
+    /*position: absolute를 추가하면 빨강, 노랑, 초록 네모가 부모요소를 기준으로 100 100, 100 100, 0 0 으로 바뀜*/
+
+    border: solid 4px black;
+    width: 500px;
+    height: 400px;
+}
+
+.redbox {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.orangebox {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+
+.yellowbox {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.greenbox {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+[id^="abs"] {
+    position: absolute;
+}
+
+[id^="rel"] {
+    position: relative;
+}
+
+
+/*position이 설정된 요소들은 top, left, right, bottom property를 통해 위치를 설정할 수 있다.*/
+#abs1 {
+    top: 100px;
+    left: 100px;
+    /*웹브라우저(창)를 기준으로 위에서부터 100px, 왼쪽에서부터 100px*/
+}
+
+#abs2 {
+    right: 100px;
+    bottom: 100px;
+    background-color: navy;
+    z-index: 3;
+}
+
+#abs3 {
+    top: 0px;
+    right: 0px;
+}
+
+#con1 {
+    z-index: -1;/*그림이 글자 아래로 내려감*/
+    background-color: white;
+    /*투명 배경은 background: transparent; */
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+
+
+#rel1 {
+    /*빨간 네모가 원래 있던 위치로부터 200px, 100px 이동*/
+    top: 200px;
+    left: 100px;
+}
+
+#rel2 {
+    top: -200px;
+    left: 200px;
+    z-index: 2;
+}
+
+
+/*컨테이너에 제트인덱스가 설정 돼 있으면 그 자식들도 부모의 제트 인덱스를 따름*/
+
+
+#rel3 {
+    top: -200px;
+    left: 50;
+}
+
+#con2 {
+    position: relative;
+    z-index: -1;
+    right: 50px;
+    /*원래 있던 위치에서 50px이동*/
+}
+
+/*유용한 건 absolute 원하는 위치에 이쁘게 꾸밀 수 있는데 대신 position을 사용한 정렬 같은 건 불가능*/
+
+/*absolute는 자기 자리를 버리고 떠나버리는데 relative는 자기 자리를 차지하고 있음*/
+
+#fix1 { /*오 이거 네비바, 배너 할 때 쓰면 괜찮겠다? */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: peru;
+    padding: 10px 30px;
+    border: solid black 3px;
+    
+    /*얘도 포지션이라 젵인덱스의 영향을 받음*/
+    z-index: 2;
+    color: white;
+    font-weight: 900; /*제일 굵은게 900임 (100단위)*/
+
+}
+
+body {
+    /*제목이 네브바에 가려져서 안 나오고 있었음*/
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#fix2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 30px;
+    border: solid black 3px;
+    background: darkolivegreen;
+    color: white;
+    font-weight: 900;
+    z-index: 2;
+}
+
+
+
+#sticky {
+    position: sticky;
+    top: 200px;
+    left: 0;
+    padding: 10px 30px;
+    width: 100%;
+    height: 50px;
+    border: solid 4px black;
+    background: darkorange;
+    color: white;
+    font-weight: 900;
+}

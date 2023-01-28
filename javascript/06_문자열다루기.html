@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 다루기</title>
+    <link rel="stylesheet" href="../assets/css/js06.css">
+</head>
+<body>
+
+    <h3># Javascript String</h3>
+    
+    <div id="out"></div>
+
+    <script>
+    print('hello!');
+    print('hello!');
+    print('hello!');
+    print('hello!');
+
+    const employees = 'smith/king/steve/nina/paul';
+
+    //length
+    print('length: ' + employees.length);
+    //print(employees.length()); length is not a function 
+    
+   
+    //substring
+    print('substr: ' + employees.substring(3, 17)); //start, end
+    print('substr: ' + employees.substring(17)); //start
+
+
+    //upper, lower
+    print('upper: '+ employees.toUpperCase());
+    print('lower: '+ employees.toLowerCase());
+
+    //charAt
+    print('charAt: ' + employees.charAt(5));
+    
+    //split
+    let empArr = employees.split('/');
+    for(i in empArr){
+        print(`emp[${i}]: ${empArr[i]}`);
+    }
+
+    //indexOf
+    const email = 'abc123@naver.com';
+    print(`indexOf '@' : ${email.indexOf('@')}`);
+
+    //search : 정규표현식을 사용해 원하는 문자열을 찾는다. 
+    print('search : '+ employees.search('in'));
+    print('search : '+ employees.search(/.in./)); //자스의 정표식은 슬래시 사이에 넣으면 됨 .+in.+ 안 되고 .in.으로 됨
+    //print('search : '+ employees.search(/,in./, 5)); 안타깝게도 시작 위치를 정할 수 없네 
+
+
+    //match : 해당 정표식과 일치하는 것들을 반환
+    print( employees.match(/.in./));
+    print( employees.matchAll(/.in./g)); //g를 붙여야 찾은 결과값 전체가 배열로 나오네 안 붙이면 하나만 나옴
+    for(matchResult of employees.matchAll(/,in./g)) { //in은 인덱스를 꺼내주고 of는 값을 꺼내줌!
+        print('match: '+ matchResult); 
+    }
+
+
+    //includes
+    print('includes minsu? ' + employees.includes('minsu'));
+    print('includes smith? ' + employees.includes('smith'));
+
+
+
+    //startswith
+    const url = 'http://naver.com';
+    print('startswith https:// : '+ url.startsWith('https://'));
+    print('startswith http:// : '+ url.startsWith('http://'));
+
+
+    //endswith
+    print('endswith : ' + url.endsWith('co.kr'));
+    print('endswith : ' + url.endsWith('net'));
+
+    //function으로 선언하는 함수는 밑에 선언해도 먼저 컴파일 된다.
+    function print(obj){
+            document.getElementById('out').innerHTML += '$ '+ obj + '<br>';
+    }
+
+
+
+    </script>
+</body>
+</html>

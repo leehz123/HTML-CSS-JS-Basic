@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>웹브라우저가 제공하는 데이터 저장 공간</li>
+        <li>사용자의 웹브라우저에 웹페이지를 운용하는 데에 필요한 데이터를 보관할 수 있다.</li>
+        블랙잭 껐다 켜도 사용자 정보 저장 돼 있던 게 웹스토리지라고 생각하면 된대
+        <li>데이터를 Key-Value 형태로 저장해놓을 수 있다.</li>
+        <li>로컬 스토리지는 웹브라우저를 종료하더라도 데이터가 유지된다.</li>
+        <li>세션 스토리지는 웹 브라우저를 종료하면 데이터가 삭제된다.</li>
+    </ul>
+
+
+    <button onclick="addLocalData();">add local data</button>
+    <button onclick="addSessionData();">add session data</button>
+        
+        
+        <script>
+
+            function Apple(color, price) {
+                this.color = color;
+                this.price = price;
+            }
+
+
+            Apple.prototype.toString = function() {
+                return `${this.color}/${this.price}`;
+            };
+
+
+            //setItem(key, value) : 스토리지에 데이터 추가
+            function addLocalData() {
+                localStorage.setItem('user', 'KHJ');
+                window.localStorage.setItem('score', 1380);
+                localStorage.setItem('apple', new Apple('red', 900)); //toString()을 통해 문자열로 변환 돼서 저장됨
+                //다만 객체 그대로 저장하는 건 불가능하고 문자열 형태로 저장되기 때문에 꺼낼 때도 문자열 형태로 꺼내기
+            }
+           
+            function addSessionData() {
+                sessionStorage.setItem('sound', 70);
+                sessionStorage.setItem('quality', 'high');
+            }
+            
+            
+            //getItem(key) : 원하는 값을 꺼낸다. 
+            console.log('local storage data: ' + localStorage.getItem('score'));
+            console.log('session storage data: ' + sessionStorage.getItem('quality'));
+            
+            //console.log(typeof localStorage.getItem('score'));
+
+
+            //removeItem(key) : 원하는 값을 삭제한다.
+            (function removeScoreData() {
+                localStorage.removeItem('score');
+            })(); //14_closure.html : closure (()=>{})();에는 함수를 실행 시킨 결과가 들어 있댔지?
+            
+            
+        </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    
+    <h3># 자바스크립트 연산자</h3>
+
+    <ul>
+        <li>자바와 거의 유사하다</li>
+        <li>== != : 값만 비교</li>
+        <li>=== !== : 값과 타입까지 비교</li>
+    </ul>
+
+    <script>
+        console.log(5/2);
+        console.log(parseInt(5/2)); //몫만 구하고 싶을 때
+        console.log(5%3);
+
+        console.log(1=='1'); //t
+        console.log(1!='1')//f
+        console.log(123=='123'); //f 
+
+        console.log(1==='1'); //f
+        console.log(1==!'1'); //t
+        console.log(123==='123'); //f
+
+        //삼항
+        apple = 44;
+        console.log(parseInt(apple % 10 > 0 ? apple/10+1 : apple/10)); //사과바구니 개수 구하기
+        
+
+    </script>
+</body>
+</html>

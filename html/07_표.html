@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 그리기</title>
+    <style>
+    </style>
+</head>
+<body>
+    
+    <h3># table tag</h3>
+    <p>
+        - &lt;table&gt; : 표 전체를 나타내는 태그<br>
+        - &lt;tr&gt; : table row. 해당 테이블에 한 행을 추가한다.<br> 
+        - &lt;td&gt; : table data. 해당 행에 일반 칸을 추가한다.<br> 
+        - &lt;th&gt; : table header. 해당 행에 제목 칸을 추가한다.<br>
+    </p>
+
+    <hr> 
+
+    <table border="1">
+        <caption>회원정보 테이블</caption><!-- 테이블에 이름 붙이는 것도 가능 -->
+        <thead> <!-- 요즘은 이렇게 블록을 구분하기도 하는데 별다른 기능은 없으므로 걍 안 해도 됨-->
+            <tr> <!-- table row -->
+                <th>이름</th> <!-- table header -->
+                <th>나이</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>John</td> <!-- table data -->
+                <td>23</td>
+                <td>010-1234-1234</td>
+            </tr>
+            
+            <tr> 
+                <td>Mike</td>
+                <td>33</td>
+                <td>234-2345-2345</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <hr> 
+
+    <!-- 
+        colspan : 해당 칸이 몇 열을 차지해야 하는지 설정
+        rowspan : 해당 칸이 몇 행을 차지해야 하는지 설정
+    -->
+
+
+    <table border="1">
+        <!-- (tr>td)*3 : tr내부에 td를 넣어서 * 3개 만들란 뜻 -->
+        <!-- 플러스는 형제, 꺽쇄는 자식인 셈 -->
+        <tr>
+            <td colspan="2">Name</td> <!-- 첫번째 칸은 두 칸 차지 -->
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td>King</td>
+            <td>Steven</td>
+            <td>55</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td rowspan="3">Doe</td> <!-- Doe라는 칸이 3 행을 차지 (셀병합 효과) -->
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Giselle</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>Mike</td>
+            <td>2</td>
+        </tr>
+    </table>
+    
+
+
+    <hr>
+
+
+
+    <table border="1">
+
+        <tr>
+            <td>Header</td>
+            <td>Header</td>
+            <td>Header</td>
+            <td>Header</td>
+        </tr>
+        <tr>
+            <td rowspan="5">span<br>rows</td>
+            <td colspan="3">span columns</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">span columns</td>
+            <td rowspan="4">span<br> both</td>
+        </tr>
+
+
+        <tr>
+            <td rowspan="3">span<br>rows</td>
+            <td>span columns</td>
+            
+        </tr>
+        <tr>
+            <td rowspan="2">span<br>both</td>
+        </tr>
+
+    </table>
+
+
+    <hr>
+
+    <table border="1">
+
+        <tr height="40">
+            <th colspan="6" style="font-family: serif;">Time Table</th>
+        </tr>
+        <tr height="40">
+            <th rowspan="7" style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;Hours&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="font-family: serif;">&nbsp;&nbsp;&nbsp;&nbsp;Fri&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+        <tr height="40">
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Arts</td>
+        </tr>
+
+        <tr height="40">
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Arts</td>
+        </tr>
+
+        <tr height="40">
+            <th colspan="5" style="font-family: serif;">LUNCH</th>
+        </tr>
+        <tr height="40">
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td rowspan="2" style="font-family: serif;">Projects&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+
+        <tr height="40">
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Maths</td>
+            <td style="font-family: serif;">Science</td>
+            <td style="font-family: serif;">Math</td>
+        </tr>
+    </table> 
+
+
+</body>
+</html>

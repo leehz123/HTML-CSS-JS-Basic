@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    
+    <style>
+
+        .row {
+            background-color: orange;
+        }
+        .row>* {
+            border: solid black 1px;
+            padding: 10px;
+            border-radius: 50px;
+            background-color: white;
+        }
+    </style>
+
+
+    <!-- https://getbootstrap.kr/docs/5.1/layout/grid/ -->
+    <h3># 부트스트랩의 그리드 시스템</h3>
+    <ul>
+        <li>컨테이너에 행 요소를 추가하고 해당 행에 칸 요소를 추가한다.</li>
+        <li>한 행에 열을 12 개 까지 추가할 수 있다.</li>
+        <li>한 칸이 12개의 열 중 몇 열을 차지할 지는 클래스 값을 통해 설정할 수 있다.(col-6 col-2 col-2 col-2면 12칸을 6 2 2 2 로 분배)</li>
+        <li>해당 요소가 어떤 시점에 얼만큼 차지할 지도 설정 가능</li>
+    </ul>
+    <div class="container">
+        <div class="row">
+          <div class="col-6">
+            Column
+          </div>
+          <div class="col-2">
+            Column
+          </div>
+          <div class="col-2">
+            Column
+          </div>
+          <div class="col-2">
+            Column
+          </div>
+        </div>
+        <div class="row" style="height: 100px;">
+            <div class="col-2">
+                Column
+            </div>
+            <div class="col-8">
+                Column
+            </div>
+            <div class="col-2">
+                Column
+            </div>
+          </div>
+    </div>
+    
+
+    <!--자동들여쓰기 단축키 ctrl + k + f-->
+
+    <!--페이지 기본 틀 잡는데 그리드레아 써도 되것지-->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>

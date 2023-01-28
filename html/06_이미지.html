@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 출력하기</title>
+</head>
+<body>
+    
+    <h3># img tag</h3>
+    <p>
+        - src : 출력하고 싶은 이미지의 경로 <br> 
+        - alt : 이미지가 제대로 출력되지 않는 경우를 대비한 속성<br>
+        
+        &lt;img src="../assets/images/apple.jpg"&gt;
+        alt 속성이 없는 이미지 태그는 비표준 태그<br>
+        (* 시각장애인들을 위한 프로그램이 alt속성을 소리 내 읽도록 돼 있음 그래서 국제적인 웹표준에 alt속성을 넣도록 돼 있음)<br>
+        (별로 필요해 보이지 않는데 자동 완성되는 이유)<br>
+    </p>
+
+    <!-- 로컬 경로로 이미지 출력 -->
+    <img src="../assets/images/apple.jpg" alt="사과입니다.">
+    <img src="../assets/images/apple123.jpg" alt="사과입니다.">
+
+    
+    <!-- URL 로 이미지 출력 -->
+    <img 
+        src="https://mblogthumb-phinf.pstatic.net/20140213_288/nofake119_1392291870105H5Ivf_JPEG/%C8%B2%C1%A6%C6%EB%B1%CF1.JPG?type=w2" alt="뽀로로">
+    <!-- 우클릭 이미지 주소 복사 해서 붙여넣기-->
+    <!-- 근데 이 방법은 남의 자원에 의존하는 거고, 왜 우리 이미지 도둑질하느냐 할 수도 있음 좋은 방법은 아니래~ -->
+
+    <!-- 크기 조절-->
+    <img width="100" height="100" 
+        src="https://img.huffingtonpost.com/asset/601273762500001f191d60de.jpeg?cache=HRTGF4bH4V&ops=scalefit_630_noupscale" alt="뽀로로..">
+    <!-- 너비와 높이 중 하나만 설정해도 이미지의 원래 비율이 자동으로 유지됨-->
+    <img width="50" 
+        src="https://img.huffingtonpost.com/asset/601273762500001f191d60de.jpeg?cache=HRTGF4bH4V&ops=scalefit_630_noupscale" alt="뽀로로..">
+
+    
+    <hr><!-- 가로 줄 긋기 태그-->
+    <!-- 이미지는 기본적으로 글자로 취급한다. (크기 조절이 가능한 글자) 창크기에 따라 이미지의 배치가 글자처럼 바뀜-->
+    <a href="https://google.com">
+        <img src="../assets/images/apple.jpg" alt="" width="200">
+    </a>
+    
+    
+</body>
+</html>

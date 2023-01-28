@@ -1,0 +1,33 @@
+
+
+[id$='-box'] {
+    padding: 10px;
+    margin: 10px;
+}
+
+[id$="-box"] > :nth-child(even) {
+    border: solid rgb(175, 175, 255) 3px; 
+}
+
+[id$="-box"] > :nth-child(odd) {
+    border: solid rgb(255, 32, 136) 3px;
+}
+
+#span-box {
+    border: rgb(212, 147, 255) 3px solid;
+}
+
+/*html의 원래 기능들은 모두 내맘대로 바꿀 수 있는 것들*/
+/*남는 건 결국 이름임 (b태그의 굵은글씨 기능을 바꿔버리는 것도 가능 근데 b태그가 굵은글씨라는 건 남겨놔야 한다는 .. 먼소리지) */
+
+
+/* 기본 디스플레이 속성은 얼마든지 수정이 가능하다.*/
+#span-box > span {
+    display: block;
+    /*원래 inline이던게 block이될 수도 있고*/
+}
+
+#div-box {
+    border: rgb(131, 255, 156) 3px solid;
+    /*원래 block이던게 inline이 될 수도 있다.*/
+}

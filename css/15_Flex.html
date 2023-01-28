@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display: flex</title>
+    <link rel="stylesheet" href="../assets/css/css15.css">
+</head>
+<body>
+
+
+<!--https://flexboxfroggy.com/#ko 연습게임-->
+
+
+    <h3># display: flex</h3>
+    <ul>
+        <li>상황에 따라 내부에 있는 요소들의 크기를 적절히 조절하는 display</li>
+        <li>display: flex를 설정한 요소는 flex container가 되고 
+            내부의 자식 요소들은 flex-item이 된다.
+        </li>
+    </ul>
+
+
+    <div id="container1" class="flex-container"> 
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+
+    <hr>
+
+
+    <h5># flex-direction</h5>
+    <div id="direction-row" class="flex-container"> 
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+
+    <hr>
+
+    <div id="direction-column" class="flex-container"> 
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+
+    <hr>
+
+    <h5># flex-wrap: nowrap</h5>
+    <ul class="flex-container nowrap">     <!--nowrap은 줄이 바뀌지 않음-->
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+        <li class="flex-item">7</li>
+        <li class="flex-item">8</li>    
+    </ul>
+
+    <h5># flex-wrap: wrap</h5>
+    <ul class="flex-container wrap">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+        <li class="flex-item">7</li>
+        <li class="flex-item">8</li>    
+    </ul>
+
+    <h5># flex-wrap: wrap-reverse</h5>
+    <ul class="flex-container wrap-reverse">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+        <li class="flex-item">7</li>
+        <li class="flex-item">8</li>    
+    </ul>
+
+</body>
+</html>

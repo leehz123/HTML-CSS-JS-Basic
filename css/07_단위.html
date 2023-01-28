@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS에서 크기를 나타내는 단위들</title>
+    <style>
+
+        html {
+            font-size: 30px;
+        }
+
+        #abs > li:first-child {
+            font-size: 20px;
+        }
+        #abs > li:nth-child(2) {
+            font-size: 20mm;
+        }
+        #abs > li:nth-child(3) {
+            font-size: 5cm;
+        }
+        #abs > li:nth-child(4) {
+            font-size: 3in;
+        }
+</style>
+</head>
+<body>
+    
+
+    <h3># 절대 길이 단위</h3>
+    <ul id="abs">
+        <li>px : 픽셀(화소)</li>
+        <li>mm : 밀리미터</li>
+        <li>cm : 센치미터</li>
+        <li>in : 인치</li>
+        <li>폰트사이즈 뿐만 아니라 px이 들어갔던 자리들 (width, height ...)에도 먹힘</li>
+    </ul>
+
+    <hr>
+
+    <h3># 상대 길이 단위</h3>
+    <ul id="rel">
+        <li>
+            em : 현재 요소에 적용된 font-size에 비례한 크기<br>
+            ex> 2.0em일 때 현재 요소에 적용된 font-size의 2배 크기
+            (2글자 정도 들어갈 공간을 확보하고 싶을 때)
+        </li>
+        <li>
+            rem : 현재 페이지의 전체(html태그)에 적용된 font-size에 비례한 크기 조절<br>
+            ex. 2.0rem일 때 현재 페이지 전체 font-size의 2배 크기
+            (얘는 요소의 글자 크기가 아닌 html태그에 적용된 글자크기를 기준으로 한다는 것!)
+        </li>
+        <li style="font-size : 4vw;">
+            vw: viewport width. 현재 웹 페이지를 보고 있는 프로그램(viewport)의 너비에 비례한 크기 조절 <br>
+            ex> 1vw는 viewport width의 1% 크기 
+        </li>
+        <li style="font-size: 4vh;">
+            vh: viewport height. viewport의 높이에 비례한 크기 조절<br>
+            ex> 1vh는 viewport height의 1% 크기
+        </li>
+    </ul>
+
+    <hr>
+
+    <div style="border: solid 3px black; width: 5.0em; height: 5.0em; font-size: 10mm;">
+        5.0em                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    </div>
+    <div style="border: solid 3px black; width: 5.0rem; height: 5.0rem; font-size: 15in;">
+        <!--rem은 html 태그에 적용된 font-size를 기준으로 하기 때문에 여기서 15in해줘도 칸 크기는 그대로고 글자 크기만 커짐-->
+        5.0rem
+    </div>
+
+</body>
+</html>

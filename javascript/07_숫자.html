@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 다루기</title>
+    <link rel="stylesheet" href="../assets/css/js06.css">
+</head>
+<body>
+    
+    <h3># Javascript Number</h3>
+    <div id="out"></div>
+
+    <script>
+        const a = 12345;
+        //숫자를 문자열로 변환하기
+        print('10진법 문자열 : ' + a.toString());
+        print('16진법 문자열 : ' + a.toString(16));
+        print('2진법 문자열 : ' + a.toString(2));
+
+
+        //다양한 타입의 값들을 숫자로 변환하기
+        print(Number(true));
+        print(Number(false));
+        print(Number('123.12345'));        
+        print(Number('54321'));
+        print(Number('0xAA1'));
+        print(Number('AA1')); //숫자로 변환이 안 되는 경우는 NaN으로 나옴
+        print(typeof Number(' 444.4444   ')); //심지어 공백 있는 것도 변환해주는데
+        print(Number(' 444  .4444   ')); // 사이에 있는 공백은 x
+        
+        //날짜시간 구하기
+        print(new Date());
+        print('unix time : ' + Number(new Date()));
+
+        print(pastInt('999.123456'));
+        print(pastFloat('999.123456'));
+
+
+        function print(obj) {
+            document.getElementById('out').innerHTML += '$ ' + obj + '<br>';
+        }
+    </script>
+
+
+</body>
+</html>

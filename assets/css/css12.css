@@ -1,0 +1,40 @@
+
+html {
+    font-size: 25px;
+}
+
+ul {
+    padding: 5px;
+    border: solid 2px blue;
+}
+
+
+
+#list1 > li {
+    padding: 3px;
+    border: solid 2px black;
+    margin: 3px;
+}
+
+#list1 > li:nth-child(odd) {
+    border-color: tomato;
+}
+
+#list1 > li:nth-child(even) {
+    border-color: rgb(59, 217, 41);
+}
+
+
+
+#list1 > li:hover {
+    border-color: darkorchid;
+} /*얘는 위에 있으면 안 됨 (덮어쓰기 땜에)*/
+
+#list > li:active {
+    border-color: yellow;
+}
+
+
+:visited {
+    color: red;
+}

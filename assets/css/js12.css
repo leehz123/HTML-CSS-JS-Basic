@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#content > div {
+    padding-left: 15px;
+    padding-top: 30px;
+
+    border : solid rosybrown 3px;
+    /* background: darkolivegreen; */
+    background-image: url('../images/tomato.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: rosybrown;
+    font-size: 30px;
+    /*width는 1fr이지*/
+    border-radius: 20px;
+    
+}
+
+
+@keyframes rotate_image {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,83 @@
+.flex-container {
+    display: flex; /*flex는 block이나 inline과 별개래! 크기가 유연하게 조절되고 패딩과 마진이 적용되니까*/
+    /*무조건 가로로만 나오는게 아니라 세로, 가로, 거꾸로, 밑에서부터 옵션이 다양하게 있대*/
+    background-color: rgb(194, 129, 255); /*#123456, 색이름, rgb(r, g, b), rgba(r, g, b, a)*/
+
+    /*마진 겉에 5px, 패딩 양쪽에 5px씩 하면 노란 사각형 양 옆의 보라 테두리가 10px로 동일하겠지?*/
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.flex-container > * {
+    background-color: rgb(253, 253, 167);
+    padding: 20px;
+    font-size: 20px;
+}
+/*사이트 만들 때 flex를 여러 개 쌓는 방식으로 만들어도 되겠지*/
+
+#container1 > * { /*컨테이너1의 내부 요소들*/
+    width: 20%;
+    margin: 5px;
+    height: 300px;
+}
+
+
+
+
+
+#direction-row {
+    flex-direction: row-reverse;
+}
+
+#direction-row > * {
+    margin-right: 5px;
+}
+
+#direction-column {
+    flex-direction: column-reverse;
+}
+
+#direction-column > * {
+    width: 100px;
+    margin-bottom: 5px;
+}
+/*플렉스컨테이너를 50%만 나오게 하고 나머지 background에 사과 이미지가 나오게 하는 것도 가능하겠지*/
+
+
+ul.flex-container { /* . 이 뭐였더라? flex-container클래스를 갖고 있는 ul태그라는 거 같은디 */
+    list-style: none;
+}
+
+/*이제 어떤 태그를 쓰든 별 의미가 없다는 걸 알겠지? 다만 코드에서 이게 li구나 ul이구나 를 알아보기 쉽지*/
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.nowrap li { /* nowrap클래스 내부의 li */
+    background-color: tomato;
+}
+
+.wrap li {
+    background-color: gold;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.wrap-reverse li {
+    background-color: dodgerblue;
+}
+
+
+.flex-item {
+    padding: 5px;
+    height: 80px;
+    width: 100px;
+    margin: 5px;
+}

@@ -1,0 +1,13 @@
+html {
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    background-color: black;
+    color: white;
+}
+
+#out {
+    padding: 10px;
+    border: dashed 3px white;
+}

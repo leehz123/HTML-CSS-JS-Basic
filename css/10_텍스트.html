@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 다루기</title>
+    <link rel="stylesheet" href="../assets/css/css08.css">
+</head>
+<body>
+    <h3>#text properties</h3>
+    
+    <h5>#text-align</h5>
+    <ul>
+        <li style="text-align: center;">
+            <!--팬그램: 영어는 a~z, 한글은 ㄱ~ㄴ, ㅏ~ㅜ 모든 글자가 들어간 문장-->
+            <div style="color: orange; display: inline; font-weight: 600;">text-align: center; text-align: center;</div>
+            The quick brown fox jumps over a(the) lazy dog.
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+        <br>        
+        <li style="text-align: left;">
+            <div style="color: orange; display: inline; font-weight: 600;">text-align: left; text-align: left;</div>
+            The quick brown fox jumps over a(the) lazy dog.
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li style="text-align: right;">
+            <div style="color: orange; display: inline; font-weight: 600;">text-align: right; text-align: right;</div>
+            The quick brown fox jumps over a(the) lazy dog.
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li style="text-align: justify;"> <!--왼쪽정렬과 같아보이는데 오른쪽에 공백을 남기기 싫을 때 글자를 어떻게든 채워서 공백이 없도록 해줌-->
+            <div style="color: orange; display: inline; font-weight: 600;">text-align: justify; text-align: justify;</div>
+            The quick brown fox jumps over a(the) lazy dog.
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+    </ul>
+
+    <!--
+        b : bold
+        i : italic
+    -->
+    <h5># vertical-align</h5>
+    <!-- 
+        한 줄 안에서의 수직적인 위치를 설정할 수 있음
+        글자크기를 작게 하니까 주석처럼 되네ㅋㅋ
+    -->
+    <ul>
+        <li>
+            The quick brown <b style="vertical-align: top;">fox</b> jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li>
+            The quick brown <b style="vertical-align: sub;">fox</b> jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li>
+            The quick brown <b style="vertical-align: baseline;">fox</b> jumps over a(the) lazy dog.
+        </li>
+    </ul>
+
+
+
+
+
+    <h5># text decoration</h5>
+    <ul>
+        <li style="text-decoration: orange underline 3px wavy;">
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li style="text-decoration: orange line-through 3px double;">
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+        <br>
+        <li style="text-decoration: orange underline overline 4px dotted;">
+            The quick brown fox jumps over a(the) lazy dog.
+        </li>
+    </ul>
+
+
+    <h5># text-transform</h5>
+    <!-- 나중에는 DB에서 읽은 내용이 여기(웹페이지)까지 올 것. (대박 여기까지 온대) 그게 웹프로그래밍-->
+    <ul style="text-transform: uppercase;">
+        <li>the quic brown fox jumps over the lazy dog. -uppercase</li>
+    </ul>
+    <br>
+    <ul style="text-transform: lowercase;">
+        <li>the quic brown fox jumps over the lazy dog. - lowercase</li>
+    </ul>
+    <br>
+    <ul style="text-transform: capitalize;"> <!-- 맨 앞 글자만 대문자 -->
+        <li>the quic brown fox jumps over the lazy dog. - capitalize</li>
+    </ul>
+
+    <h5># text-indent</h5>
+    <!-- 들여쓰기 설정. -->
+    <ul>
+        <li style="text-indent: 1in; text-transform: uppercase; text-align: justify;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="text-indent: 2in; text-transform: lowercase; text-align: justify;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="text-indent: 3in; text-transform: capitalize; text-align: justify;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+    </ul>
+
+    <h5># letter-spacing (자간 설정)</h5>
+    <ul>
+        <li style="letter-spacing: 3px;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="letter-spacing: -5px;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="letter-spacing: 1rem;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+    </ul>
+
+    <h5># word-spacing (단어 간 간격)</h5>
+    <ul>
+        <li style="word-spacing: 3px;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="word-spacing: -5px;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="word-spacing: 1rem;">
+            the quic brown fox jumps over the lazy dog.
+        </li>
+    </ul>
+
+    <h5># line-height (줄간격 설정)</h5>
+    <ul>
+        <li style="line-height: 5px;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="line-height: 1rem;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="line-height: 2rem;">
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+    </ul>
+
+    <h5># white-space (자동줄바꿈 여부)</h5>
+    <ul>
+        <li style="white-space: nowrap;"> <!-- 보더 무시하고 쭉 감 -->
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+        <br>
+        <li style="white-space: normal;"> <!-- 보더 안에서만 -->
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+            the quic brown fox jumps over the lazy dog.
+        </li>
+    </ul>
+
+</body>
+</html>

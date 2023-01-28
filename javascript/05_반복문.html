@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+<body>
+
+    <h3># 자바스크립트에도 반복문이 있다.</h3>
+    
+    <script>
+        for(var i = 0;  i < 10; ++i) {  //var생략 가능
+            console.log(i);
+        }
+
+        const animals = ['cat', 'dog', 'cat', 'cat', 'cat', 'dog'];
+        const human = {
+            name: '김철수',
+            age : 15,
+            hobbies : ['축구', '농구', '수영']
+        }
+
+        console.log(animals.length);
+        //`` : js string format (` : backtick)
+        for(var i = 0; i < animals.length; ++i) {
+            console.log(`${i}번째 동물 : ${animals[i]}`); //${} 안에 넣으면 문자열에서 탈출시켜주나봄
+            //console.log(i+ '번째 동물 :'+ animals[i]);이렇게 하면 이상하게 출력됨
+        }
+
+        //for each
+        //자스는 희한한게 값을 꺼내주는게 아니라 키값을 꺼내줌
+        for(var index in animals){  //for .. in array
+            console.log(animals[index]);
+        }
+        //for each를 객체배열에 사용하면 편하겟쥐
+        for(key in human) { //for.. in object
+            console.log('key: ' , key);
+            console.log(`${key}=${human[key]}`);
+        }
+
+
+        //whie
+        let num = 1;
+        while(true){
+            console.log(num*=2);
+            if(num>10000000){
+                break;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

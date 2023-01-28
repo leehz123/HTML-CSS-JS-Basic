@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자(Selector)</title>
+    <style>
+        div {
+            background-color: orange;
+            border: solid 3px black;
+            margin : 3px;
+        }
+
+        #div2 {
+            background-color: brown;
+        }
+
+        .important {
+            text-decoration: underline 2px solid;
+            padding : 3px;
+        }
+
+        .large {
+            font-size: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- pre tag : pre tag 내부에서 공백들이 정상 적용된다. -->
+    <pre>
+        
+        # CSS의 기본 형태
+
+        Selector {
+            property : value;
+        }
+        
+        선택자, 속성, 값으로 구성
+
+    </pre>
+    
+    <h3># CSS Selector</h3>
+
+    <ul>
+        <li>CSS는 선택자를 통해 어느 요소에 스타일을 적용할지 결정한다.</li>
+        <li>tagname : 해당 태그인 모든 요소에 스타일을 적용한다.</li>
+        <li>#id : 해당 id를 가진 요소를 선택해 스타일을 적용</li>
+        <li>.class : 해당 class를 가진 모든 요소를 선택해 스타일을 적용</li>  
+    </ul>
+
+    <br>
+
+    <!--div : 영역을 설정하기 위한 아무런 효과도 없는 태그-->
+    <div class="important large">tagName : div, id : none, className : none</div> <!-- important 클래스와 large클래스 두 개 적용된 것 -->
+    <div id="div2">tagName : div, id : div2, className : none</div>
+    <div class="important">tagName : div, id : none, className : important</div>
+
+
+    <p>
+        선택자 연습하기 : <a href="https://flukeout.github.io/" target="_blank">https://flukeout.github.io/</a>
+    </p>
+</body>
+</html>

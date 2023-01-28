@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    
+
+    <h3># Javascript Closure</h3>
+
+    <ul>
+        <li>함수의 self invoke를 활용해 폐쇄적인 영역을 만든느 방식</li>
+        <li>중첩되는 변수 활용을 방지할 수 있다.</li>
+        <li>여러 함수를 찍어내는 함수를 만들 수 있다.</li>
+        <li>객체지향적인 코드를 작성하는 데 자주 활용된다.(클래스를 쓰는 게 아니라 이런 걸 쓴다.)</li>
+    </ul>
+
+    <script>
+        
+        //self-invoke function : 함수를 선언하자마자 바로 실행시켜 버리는 것
+        const result = ((a, b) => {  //안에서만 보고 지만 아는 거니까 함수 이름도 필요 없음
+            return a+b;
+        })(10, 15); //이런 짓까지 가능한게 자스다 
+        console.log(result);
+
+        //console.log(plus(111, 222)); //여기선 못 씀. 지만 알 수 있다는 것
+
+        //자스의 객체타입 복습
+        const human = {
+            name: '홍길동', 
+            age: 25
+        };
+        console.log(human.name);
+        console.log(human.age);
+        console.log(human['name']);
+        console.log(human['age']);
+
+
+        //closure 활용한 private field의 구현
+        const counter = (()=> {   //counter에는 함수가 들어 있는 게 아니라 함수를 실행시킨 결과가 들어 있는 것이다.
+            let num = 0;//private
+            return {
+                increase: () => num += 1,
+                decrease: () => num -= 1,
+                currentValue: () => num
+            };
+        })();
+        //왜 이런짓을 하느냐. 그냥. private하게 만들려고.
+        //const ccc = (a+b+c)(); //이런 형태
+        //만약 감싸는 괄호가 없으면 const ccc= a+b+c(); 이렇게 되는 거니까 실행이 안 됨
+
+
+        console.log(counter.increase());
+        console.log(counter.increase());
+        console.log(counter.increase());
+        console.log(counter.num);//private field라 이렇게는 안 나오고 
+        console.log(counter.currentValue());//currentValue()로 빼와야 됨
+        //자스에서 클래스는 거의 사장된 문법이래. 그렇게 인기 있는 기능은 아니래
+
+    </script>
+
+
+</body>
+</html>

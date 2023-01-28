@@ -1,0 +1,73 @@
+* {
+    border: solid green 1px;
+    border-width: 5px;
+}
+
+html {
+    border-color: blue;
+    border-width: 10px;
+}
+
+body {
+    border-color: red;
+    border-width: 5px;
+}
+
+.test-box {
+    height: 100px;
+    border: solid 3px black;
+    font-size: 25px;
+}
+
+#margin1{
+    margin: 50px;
+}
+#margin2 { /*시계방향으로*/
+    margin: 30px 100px 50px 10px;
+}
+#margin3 {
+    margin-top: 80px;
+    margin-left: 300px;
+    margin-right: 500px;
+    margin-bottom: 30px;
+}
+
+
+/*요소의 크기는 padding + border width + content box(width, height) 를 다 합쳐서 결정된다.*/
+/*margin은 요소의 크기에 영향을 미치지 않음*/
+[id^="padding"] {
+    width: 100px;
+    height: 100px;
+}
+#padding1 {
+    padding: 30px;
+    margin: 30px;
+}
+#padding2 {
+    padding: 50px;
+    margin: 50px;
+}
+#padding3 {
+    padding: 50px;
+    border-width: 25px;
+    border-style: ridge;
+    border-color: gray;
+    margin: auto;
+}
+
+.test2 {
+    width: 300px;
+    height: 200px;
+    border-width: 25px;
+    padding: 20px;
+}
+
+#content-box {
+    box-sizing: content-box; /*default*/
+}
+
+/*box-sizing: border-box; - width/height가 전체 크기를 바로 결정하는 방식*/
+/* 편한건 border-box (계산 안 해도 되니까) */
+#border-box {
+    box-sizing: border-box; 
+}

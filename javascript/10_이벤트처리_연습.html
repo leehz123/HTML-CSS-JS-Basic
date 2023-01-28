@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트처리 연습!</title>
+    <link rel="stylesheet" href="../assets/css/js10.css">
+</head>
+<body>
+
+    <h3># HTML이벤트 속성으로 추가하기</h3>
+    <div id="event1"
+        onclick="this.innerText= '왜 클릭하셧져?'"
+        onmouseover="this.innerText='마우스를 올리셨네요...';"
+        onmouseleave="this.innerText='안녕히 가라세요'"
+        >
+        안녕하세여
+    </div>
+
+
+
+
+    <h3># 자스로 이벤트 추가하기</h3>
+    <div id="event2">자스로 이벤트 추가한 div</div>
+
+    <script>
+        const eventDiv = document.getElementById('event2');
+        const myClickEvent = (e)=> {
+            eventDiv.innerHTML = '클릭하셧군여;;';
+        };
+        eventDiv.onclick = myClickEvent;
+    </script>
+
+
+    
+</body>
+</html>

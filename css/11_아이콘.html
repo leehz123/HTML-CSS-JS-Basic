@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이콘 사용하기</title>
+    <!--https://developers.google.com/fonts/docs/material_icons 가면 구글 아이콘 사용 가능-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> <!--하트-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet"> <!--+Two+Tone 붙이는 거 추리해서 써야댐;;-->
+    <!--링크 태그는 html태그라 css파일 내에 쓰면 안 되고 여기에서만 먹힘 그리고 css파일 내부에서는 import하면 되지~ -->
+
+    <!--Fontawsome 마이페이지 - kit - 키트 번호 어쩌구 써진거 누르면 - kit링크 나옴 https://fontawesome.com/kits/9bf3d4d82e/use-->
+    <script src="https://kit.fontawesome.com/9bf3d4d82e.js" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="../assets/css/css11.css">
+
+</head>
+<body>
+
+    <span class="material-symbols-outlined">favorite</span>  
+    
+    <h3># google icons</h3>
+    <p style="background-color: black;">
+    <span class="material-icons md-18 md-light">face</span>
+    <span class="material-icons md-24 md-light">face</span>
+    <span class="material-icons md-36 md-light">face</span>
+    <span class="material-icons md-48 md-light">face</span>
+    </p>
+
+
+    <h3># google icons</h3>
+    <p style="background-color: green;">
+    <!--https://fonts.google.com/icons 들어가면 아이콘 목록 볼 수 있음 (icon guides에서 material icon library)-->
+    <span class="material-icons md-18 md-light md-inactive">menu</span>
+    <span class="material-icons md-24 md-light md-inactive">settings</span>
+    <span class="material-icons md-36 md-light md-inactive">favorite</span>
+    <span style="color: violet;" class="material-icons md-48 md-light md-inactive">star</span><!-- 얘는 색깔이 먹히는데 -->
+    <span style="color: violet;" class="material-icons-two-tone">description</span> <!-- 투톤은 역시나 색깔이 먹히지 않는다 -->
+    </p>
+
+
+    <h3># font-awesome icons</h3>
+    <!--https://fontawesome.com/ leemica77지멜 c_______! -->
+    <!--키트 링크 복사해서 헤드태그 안에 넣어주기 유료 조심-->
+    <!--구글 아이콘보다 쓸만하네-->
+    <i class="fa-solid fa-baseball-bat-ball"></i>
+    <i class="fa-regular fa-chess-queen"></i>
+
+    <!--Animating Icons 카테고리에 가면 애니메이션 아이콘 있음 https://fontawesome.com/docs/web/style/animate -->
+    <div class="fa-3x" style="color: darkred;">
+        <i style="color: red;" class="fa-solid fa-heart fa-beat"></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s;" ></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-beat-scale: 6.0;"></i>
+        <i class="fa-solid fa-heart fa-beat"></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s;" ></i>
+        <i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>
+      </div>
+      
+      
+      <div class="fa-3x" style="color: darkolivegreen;>
+        <i class="fa-solid fa-triangle-exclamation fa-fade"></i>
+        <i class="fa-solid fa-skull-crossbones fa-fade"></i>
+        <i class="fa-solid fa-desktop-arrow-down fa-fade"></i>
+        <i class="fa-solid fa-i-cursor fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" ></i>
+      </div>
+      
+      <!-- icons in a list 카테고리에 가면 리스트도 있음 https://fontawesome.com/docs/web/style/lists -->
+      <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>List icons can</li>
+        <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>be used to</li>
+        <li><span class="fa-li"><i class="fa-solid fa-spinner fa-pulse"></i></span>replace bullets</li>
+        <li><span class="fa-li"><i class="fa-regular fa-square"></i></span>in lists</li>
+      </ul>
+    </div>
+
+</body>
+</html>

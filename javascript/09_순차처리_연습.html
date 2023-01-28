@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순차처리 연습!</title>
+    <link rel="stylesheet" href="../assets/css/js09.css">
+</head>
+<body>
+
+    <div id="out"></div>
+
+    <script>
+        /*
+        연습문제.
+        1. 국어 영어 수학 랜덤 점수를 가진 학생 100 명을 자바스크립트 오브젝트로 생성한다.Math.random()
+        2. map을 이용해 모든학생들의 평균 점수 배열을 생성한다. 
+        3. filter를 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성하여 html테이블 태그로 출력한다. 
+        4. 평균 점수가 30점 이하인 학생은 빨간 글씨로 출력한다. (출력된 70점 이하의 학생들 중에서 30점 이하인 학생들만)
+        */
+
+        //1. 국영수 랜덤점수를 가진 학생 100명을 담은 오브젝트를 생성
+        const getRandomScore = () => parseInt(Math.random()* 101);
+        const getRandomStudent = (i) => {
+            return {
+                stuNum: i,
+                kor: getRandomScore(), 
+                eng: getRandomScore(), 
+                math: getRandomScore(),
+                getAvg: function() {
+                    return (this.kor + this.eng + this.math) / 3; 
+                }
+            }
+        };
+        let students = [];
+        for(i=0;i<100;++i) {
+            students.push(getRandomStudent(i));
+        }
+
+        //2. map을 이용해 모든 학생들의 이름과 평점을 담은 배열을 생성
+        const stuAvgs = students.map((student) => [student.stuNum, student.getAvg()]);
+        
+        //3-1. filter를 이용해 평점이 70점 이하인 학생들의 정보가 담긴 배열 생성
+        const under70s = stuAvgs.filter((stuAvg)=>{
+            return stuAvg[1] <= 70;
+        });
+
+        //3-2. 평점이 70점 이하인 학생들의 정보들을 html 테이블 태그로 출력
+        let under70sTable = '<table id="under70"><tr><th>학생</th><th>평균</th></tr>';
+        under70s.forEach((under70)=> { 
+            under70sTable += under70[1]<=30 ? '<tr class="danger">' : '<tr class="safe">';
+            under70sTable += `<td>학생${under70[0]}</td><td>${under70[1].toFixed(2)}</td>`;
+            under70sTable += '</tr>';    
+        });
+        under70sTable += '</table>';
+        print(under70sTable);
+
+
+        function print(obj) {
+            document.getElementById('out').innerHTML += obj + '<br>';
+        }
+    </script>
+
+</body>
+</html>

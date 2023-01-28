@@ -1,0 +1,23 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 20px;
+}
+
+.grid-container {
+    display: grid;
+    background-color: cornflowerblue;
+
+    grid-template-columns: 200px auto 100px 100px;
+    grid-template-rows: 100px 300px 100px;
+}
+
+
+.grid-container > * {
+    background-color: white;
+    border: solid 3px black;
+    border-radius: 5px; /*테두리를 둥글게 만들어준다.*/
+}

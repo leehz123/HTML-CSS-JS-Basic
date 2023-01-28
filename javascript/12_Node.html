@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node</title>
+    <link rel="stylesheet" href="../assets/css/js12.css">
+    
+</head>
+<body>
+
+    <h3># Node</h3>
+    
+    <!-- Comment Node -->
+    <ul>
+        <li>document에 속해 있는 모든 것은 Node라고 부른다.</li>
+        <li>Node는 Element Node와 Text Node로 나뉜다.</li>
+        <li>주석은 Comment Node라고 한다.</li>
+    </ul>
+
+    <button id="push-btn">push!</button>
+    <button id="pop-btn">pop!</button>
+
+    <hr>
+
+    <!--연습문제1. 버튼을 누르면 content 내부의 홀수번째 요소의 배경 이미지가  다른 과일로 변경되도록 만들어보세요.-->
+    <button id="changeFBtn">Change Fruit</button>
+    
+    <!--연습문제2. 버튼을 누르면 짝수번째 요소들이 360도 회전하게 만들어보세요. (CSS animation)-->
+    <button id="rotateFBtn">Rotate Fruit</button>    
+    
+    <!--되감기도 만들어보셈~-->
+    <button id="rewind"></button>
+
+    <hr>
+
+    <div id="content"></div>
+
+    <script>
+        const pushBtn = document.getElementById('push-btn');
+        const popBtn = document.getElementById('pop-btn');
+
+        const content = document.getElementById('content');
+
+        let index = 1;
+
+        const rotateInfo = [];
+
+        pushBtn.addEventListener('click', (e)=> {
+            //자바스크립트로 요소 생성해서 추가하기
+            const newElement = document.createElement('div');//Element Node 생성
+            const newTextNode = document.createTextNode(index++);
+            
+            //텍스트 노드를 자식으로 추가하기
+            newElement.appendChild(newTextNode);
+
+            //텍스트 노드가 추가된 새 요소를 자식으로 추가
+            content.appendChild(newElement);
+
+
+            rotateInfo.push(1);
+            console.log(rotateInfo);//디브 하나 추가될 때마다 rotateInfo배열의 요소가 하나씩 늘어남 값은 1로
+        });
+
+
+        popBtn.addEventListener('click',(e)=> {
+            //const lastDiv = document.getElementById('content').child[마지막 인덱스];
+            const lastDiv = document.querySelector('#content > div:last-child');  // 이렇게 하면 되지~
+
+            lastDiv.remove();
+        });
+
+
+
+
+        //<!--연습문제1. 버튼을 누르면 content 내부의 홀수번째 요소의 배경 이미지가 다른 과일로 변경되도록 만들어보세요.-->
+        const changeFruitBtn = document.getElementById('changeFBtn');
+
+        //<!--연습문제2. 버튼을 누르면 짝수번째 요소들이 360도 회전하게 만들어보세요. (CSS animation)-->
+        //옵션 찾아서 사용해보기
+        const rotateFruitBtn = document.getElementById('rotateFBtn');
+
+//        const oddDivs = document.querySelector('#content > div:nth-child(odd)'); 왜 밖에 있으면 안 되는지? 
+//        const evenDivs = document.querySelector('#content > div:nth-child(even)');
+
+        const oddDivEvent = (e) => {
+            //이 oddDivs변수도 이벤트리스너 블록 안에서 선언돼야 함.. 왜지,,?
+            const oddDivs = document.querySelectorAll('#content > div:nth-child(odd)'); //쿼리셀렉터'All'로 해야 하고
+            for(oddDiv of oddDivs) { //하나씩 꺼내서 적용해야 했음
+                oddDiv.style.backgroundImage = 'url(../assets/images/strawberry.jpg)';  //url을 작따 안에 넣어주는 거 잊지 말고...  
+            }
+        };
+        changeFruitBtn.addEventListener('click', oddDivEvent);
+
+
+        //let turn = 1;
+        const evenDivEvent = (e) => {
+            const evenDivs = document.querySelectorAll('#content > div:nth-child(even)');
+            for(evenDiv of evenDivs) {
+                // evenDiv.style.animation = 'rotate_image infinite 0.00001s linear';
+                // evenDiv.transformOrigin = '50% 50%';
+                //@keyframe은 css파일에서 설정 해줌
+
+                //evenDiv.style.transform = 'rotate(180deg)'; 이건 백팔십도 뒤집기
+            
+                //evenDiv.style.transform = 'rotate(1turn)'; //-1turn으로 하면 역방향으로 돌아
+                //evenDiv.style.transform = `rotate(${turn++}turn)`; //이렇게 하면 여러번 돌겟지
+                //evenDiv.style.tranitionDuration = '1s';
+
+                //console.log(rotateFruitBtn);
+                const index = Number(evenDiv.innerText);
+                evenDiv.style.transform = `rotate(${rotateInfo[index-1]}turn)`;
+                evenDiv.style.transitionDuration = '1s';
+                
+                rotateInfo[index-1]++;//이걸 넣어줘야 버튼 여러번 눌러도 계속 회전함
+                //rotateInfo 값을 1 추가 = 회전값이 올라가는 거
+                //원래 rotate(1turn) 했으면 한번만 돌고 끝인데 rotateInfo의 값을 1씩 증가시키며 그 값대로 도는 거니까 
+                //push로 div를 추가한 다음 또 rotate버튼을 눌렀을 떄 기존에 있던 div까지 같이 회전하는 것 
+            }   //+ 여러번 돌리는 것도 가능해짐
+        };
+        rotateFruitBtn.addEventListener('click', evenDivEvent);
+
+    </script>
+
+
+
+</body>
+</html>

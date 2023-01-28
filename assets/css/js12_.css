@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#content>div {
+    border: solid rosybrown 3px;
+    background-image: url('../images/apple.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: rosybrown;
+    font-size: 30px;
+    border-radius: 20px;
+    
+    /* padding-left: 15px;
+    padding-top: 30px; */
+}
+
+
+@keyframes rotate_image {
+    100% {
+        transform: rotate(360deg);
+    }
+}

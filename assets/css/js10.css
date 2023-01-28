@@ -1,0 +1,9 @@
+#event1{
+    border: solid 5px black;
+    border-radius: 15px;
+    background: seagreen;
+    color: white;
+    padding: 30px;
+    font-size: 25px;
+    user-select: none; /*블록지정 불가*/
+}

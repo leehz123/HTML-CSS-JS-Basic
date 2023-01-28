@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 설정하기</title>
+</head>
+<body>
+
+    <h3># window.setTimeout(callback, time)</h3>
+    <p>원하는 시간만큼 기다린 후에 콜백함수를 한 번 실행한다.</p>
+    <h3># window.setInterval(callback, time)</h3>
+    <p>원하는 시간마다 해당 함수를 실행한다.</p>
+    <h3># clearInterval(interval), clearTimeout(timeout)</h3>
+    <p>전달한 인터벌과 타이머를 제거하는 함수</p>
+
+    <div id="out"></div>
+    <button id="stop">stop!</button>
+
+    <script>
+        // setTimeout(() => {
+        //     document.getElementById('out').innerText = new Date();
+        // }, 5000); //1000ms = 1s
+        // //5초 후에 시간이 찍힘
+
+        const myInterval = setInterval(() => {
+            document.getElementById('out').innerText = new Date();
+        }, 200); //시간이 가는 것처럼 보임~
+        
+        document.getElementById('stop').addEventListener('click', ()=>{
+            window.clearInterval(myInterval);
+        }); //stop버튼 누르면 더 이상 시간을 세지 않음
+        //이걸 이용해서 구름이 계속 흘러가게 만든다든가 할 수 잇것지
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/js12_.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="push-btn">push!</button>
+    <button id="pop-btn">pop!</button>
+
+    <hr>
+
+    <button id="change-btn">Change Fruit</button>
+    <button id="rotate-btn">Rotate Fruit</button>
+
+    <hr>
+
+    <div id="content"></div>
+
+    <script>
+        const pushBtn = document.getElementById('push-btn');
+        const popBtn = document.getElementById('pop-btn');
+        const changeBtn = document.getElementById('change-btn');
+        const rotateBtn = document.getElementById('rotate-btn');
+        const content = document.getElementById('content');
+
+        let index = 1;
+
+        const rotateInfo = [];
+
+        pushBtn.addEventListener('click', (e)=>{
+            const newElement = document.createElement('div');
+            const newTextNode = document.createTextNode(index++);
+            
+            newElement.appendChild(newTextNode);
+            content.appendChild(newElement);
+
+            //디브 하나 생길 때마다 rotateInfo 배열에 1추가
+            rotateInfo.push(1);
+            console.log(rotateInfo);
+        });
+
+        popBtn.addEventListener('click', (e)=>{
+            const lastDiv = content.querySelector('#content>div:last-child');
+            lastDiv.remove();
+        });
+
+
+        
+        //자스에도 전역변수 지역변수 같은 게 있는데 여기에 선언 했을 때 oddDivs의 값이 undefined로 뜨는 이유가 이 시점에는 content 안에div가 없기 때문이다.
+        //const oddDivs = document.querySelectorAll('#content > div:nth-child(odd)');
+        changeBtn.addEventListener('click', (e)=>{
+            const oddDivs = document.querySelectorAll('#content > div:nth-child(odd)');
+            //그래서 여기에 선언해서 버튼을 클릭했을 때 쿼리셀렉텨를 실행해서 홀수 디브들을 찾도록 해야 함!     
+            for(oddDiv of oddDivs) {
+                oddDiv.style.backgroundImage = 'url(../assets/images/strawberry.jpg)';
+            }
+        });
+
+
+
+        rotateBtn.addEventListener('click', (e)=>{
+            const evenDivs = document.querySelectorAll('#content > div:nth-child(even)');
+            for(evenDiv of evenDivs) {
+                //evenDiv.style.animation = 'rotate_image infinite 1s linear';
+                //evenDiv.transformOrigin = '50% 50%';
+                
+                const index = Number(evenDiv.innerText);
+                evenDiv.style.transform = `rotate(${rotateInfo[index-1]}turn)`;
+                evenDiv.style.transitionDuration = '1s';
+                rotateInfo[index-1]++; //rotateInfo 값을 1 추가 = 회전값이 올라가는 거
+                //원래 rotate(1turn) 했으면 한번만 돌고 끝인데 rotateInfo의 값을 1씩 증가시키며 그 값대로 도는 거니까 
+                //push로 div를 추가한 다음 또 rotate버튼을 눌렀을 떄 기존에 있던 div까지 같이 회전하는 것 
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>

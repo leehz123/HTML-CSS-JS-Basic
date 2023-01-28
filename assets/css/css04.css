@@ -1,0 +1,72 @@
+
+div {
+    border: solid 3px black;
+    height: 300px;
+
+}
+
+div:first-child{
+    height: 800px;
+
+    /* 배경이미지 설정 */
+    background-image: url('../images/apple.jpg');
+    /* 이미지 경로는 CSS에서 찾아가는게 맞음 (../assets/images/apple.jpg 아님) */
+    
+    /*이미지 크기 설정*/
+    background-size: 100px 100px;/* 값을 두 개 입력해서 너비/높이 설정 */
+    background-size: 100px; /* 너비만 설정. 높이는 비율 맞춰서 자동으로 설정됨 */
+    /*아래 있는 코드가 위에 있는걸 덮어쓰기 함*/
+
+    /*
+    배경 반복 여부 설정
+        repeat : default
+        no-repeat : 반복 안 함
+        repeat-x: 가로로 반복되는 배경
+        repeat-y: 세로로 반복되는 배경
+        round : 창크기 조절에 따라 변함. 가로, 세로 각각에 들어가는 이미지 개수가 자동으로 조절됨
+        space : 창크기 조절에 따라 변함. 이미지 사이의 간격이 자동으로 조절됨
+    */
+    background-repeat: no-repeat;
+
+    /*
+    배경의 위치 설정
+        - top, bottom, center, left, right를 다양하게 조합하여 설정할 수 있다. 
+        - 원하는 수치를 넣을 수도 있다.
+        - x와 y를 따로 설정할 수도 있다.
+
+    */
+    background-position: top center;
+
+    /*top center 포지션은 얘네 둘한테 덮어씌워져서 효과 사라짐*/
+    background-position-x: 300px;
+    background-position-y: 100px; 
+    
+}
+
+div:nth-child(2) {
+    background-image: url(../images/apple.jpg);
+    background-repeat: no-repeat;
+    height: 800px;
+    background-size: contain; /*background-size: contain; 배경을 해당 박스에 전부 담으려는 크기 조절(이미지가 온전히 다 드러남)*/
+}
+
+div:nth-child(3) {
+    background-image: url(../images/apple.jpg);
+    background-repeat: no-repeat;
+    height: 800px;
+    background-size: cover; /*background-size: cover; 배경으로 해당 박스를 전부 덮으려는 크기 조절(창크기 작게 조절하면 이미지의 가려지는 부분도 존재)*/
+}
+
+
+div:nth-child(4) {
+    height: 800px;
+    background-image: url(../images/apple.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-attachment: fixed; /*background-attachment : fixed; - 배경을 웹브라우저(viewport)에 고정시킨다. */
+}   
+
+div:nth-child(5) {
+    height: 2000px;
+}

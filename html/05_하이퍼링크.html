@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다른 웹페이지 링크 걸기</title>
+</head>
+<body>
+
+    <!-- a : anchor 닻. 닻을 걸어서 이동하는 느낌ㅋㅋ-->
+
+    <!-- 상대 URL (앞에 http://가 없음)-->
+    <a href="www.naver.com">네이버로</a><br>
+    <!-- 절대 URL (전체 주소 입력)-->
+    <a href="http://www.naver.com">네이버로</a><br>
+    
+    <h3># target 속성</h3>
+    <a href="http://www.naver.com">네이버로</a><br>
+    <a href="http://www.naver.com" target ="_blank">네이버로</a><br>
+
+    <h3># 상대 URL 사용하기</h3>
+    <p>
+        같은 경로 상에 있는 다른 페이지를 찾아갈 때 상대 URL이 유용하다.<br> 
+        <!--
+            / : 현재 경로의 최상위 위치 시스템 경로에선 C라면 C, D라면 D일텐데 URL 에서는 현재 내가 접속해 있는 사이트를 가리킴
+            ./ : 현재 위치
+        -->
+
+        <a href="/">최상위 위치</a><br><!-- 지금은 서버를 이용하지 않고 로컬에서만 하고 있기 땜에 C드로 갈 것-->
+        <a href="./">현재 위치</a><br>
+
+        <a href="01_HTML이란.html">수업01</a><br>
+        <a href="./02_요소.html">수업02</a><br>
+        <a href="./03_제목.html">수업03</a><br>
+        <a href="./04_속성.html">수업04</a><br>
+        <!-- ./ 는 '현재 위치(부터)' 라는 의미지? 이거 써주는게 의미가 더 분명해보이긴 함 -->
+        
+        <H1>대문자로 태그를 작성할 수 있지만.. 하지 않는 것이 좋다. </H1> 
+    </p> 
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM (Browser Object Model)</title>
+</head>
+<body>
+
+    <h3># 자바스크립트로 웹브라우저 직접 제어하기</h3>
+    <ul>
+        <li>자바스크립트는 웹브라우저와 소통하기 위한 객체(BOM)을 통해 웹브라우저를 직접 제어할 수 있다.</li>
+        <li>window 객체는 사용자가 현재 사용중인 웹브라우저를 의미한다.</li>
+        <li>window 객체는 생략이 가능하다. (원래는 document 도 window.document이다.)</li>
+    </ul>
+
+    <h3># Browser Object Model</h3>
+    <ul>
+        <li>window : 웹브라우저 최상위 객체</li>
+        <li>window.screen : 사용자의 모니터 정보가 들어 있는 객체</li>
+        <li>window.history : 사용자의 웹브라우저의 페이지 이동 내역 객체</li>
+        <li>document : 현재 보고 있는 페이지의 Document Object Model</li>
+        <li>window.location : 현재 보고 있는 위치(url)에 대한 정보를 담은 객체</li>
+        <li>window.navigator : 웹브라우저의 정보를 담은 객체</li> <!--별로 필요 없음 걍 볼 수 있다는 정도~-->
+    </ul>
+
+    <button id="back">back!</button>
+
+    <script>
+        console.dir(window);
+
+        //창크기 조절해서 새로고침할 때마다 바뀜
+        console.dir(window.innerWidth);
+        console.dir(window.innerHeight); 
+
+        //사용자 모니터의 크기
+        console.dir(window.screen); //availHeight: 680 는 사용자 모니터에서 띄울 수 있는 창의 최대 높이 인가봄?
+        console.dir(screen.height); //window는 생략 가능 아 얘는 왜 720나옴?
+
+        console.dir(window.location);
+        //location.href = 'https://naver.com'; //웹브라우저의 주소창
+        // location.href를 수정하면 해당 페이지로 이동한다.
+        
+        //url규칙 (jsp할 때 한번 더 다룰 것)
+        // protocol://hostname/pathname
+        // protocol : http, https, ftp:// ... 통신 방식을 의미
+        // hostname : 어디로 갈 것인가 naver.com
+        // pathname : 해당 포스트에서 어떤 것을 의미하느냐
+
+
+        //url을 3가지 부분으로 나뉘서 각 부분을 프로토콜, 호스트, path(URI)라는 이름으로 부른다.
+        console.log(location.protocol); // https://, http://, ftp://, file:// ...
+        console.log(location.hostname); // comic.naver.com, naver.com, daum.net...
+        console.log(location.pathname); ///webtoon/detail?titleId=748105&no=184&weekday=thu : 어쩌고 저쩌고 184화 목요웹툰
+
+        /*window.history*/
+        console.dir(window.history);
+        // history.back();     //뒤로 (-1)
+        // history.go(2);       //원하는 곳으로 이동 +1, -1 ...
+        // history.forward();     //한 칸 앞으로 (+1)
+        //https://codingbroker.tistory.com/73 이걸로 실습 해보기
+
+        //wihdow.navigator
+        console.dir(window.navigator);
+
+        document.getElementById('back').addEventListener('click',()=> {
+            history.back();
+        });
+
+
+
+    </script>
+    
+</body>
+</html>

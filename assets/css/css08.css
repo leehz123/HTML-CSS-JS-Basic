@@ -1,0 +1,14 @@
+ul, ol {
+    list-style-type: none;
+    padding: 5px;
+    border: solid 2px rgb(0, 0, 0);
+}
+
+li {
+    border: solid 2px rgb(0, 0, 0);
+    padding: 3px;
+}
+
+b {
+    font-size: 0.5rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <script src="https://kit.fontawesome.com/9bf3d4d82e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    
+    <!-- <h3># 웹페이지에서 할 수 있는 홀짝 게임을 만들어보세요</h3>
+    <ul>
+        <li>랜덤으로 홀/짝을 맞추는 게임</li>
+        <li>맞추면 걸었던 돈만큼 소지금이 늘어난다.</li>
+        <li>틀리면 걸었던 돈을 모두 잃게 된다.</li>
+        <li>소지금은 해당 페이지를 껐다 켜도 유지 되어야 한다.</li>
+        <li>페이지 디자인은 자유</li>
+    </ul> -->
+
+
+
+    <div><span>money : </span> <span>10000</span></div> 
+    <div><input id="tf" type="text" placeholder="bet your money"> 
+        
+        <button>reset</button> 
+        <button>submit</button>
+    <div id="out"><br></div>
+
+    <button id="restart-btn">Restart</button>
+    <button id="odd-btn">홀</button>
+    <button id="even-btn">짝</button>
+
+    <div id="outt"></div>
+
+    <script>
+        const out = document.getElementById('out');
+        const outt = document.getElementById('outt');
+
+        const startBtn = document.getElementById('restart-btn');
+        const oddBtn = document.getElementById('odd-btn');
+        const evenBtn = document.getElementById('even-btn');
+
+
+
+
+        //인풋태그 값 가져오기
+        batMoney = document.getElementById('tf').value;
+
+
+        const print = function print() {
+            randomNum = parseInt(Math.random()*5);
+            randomHearts = ``;
+            for(i=0; i<=randomNum; ++i) {
+                randomHearts += `<i class="fa-solid fa-heart fa-beat"></i>`; 
+            };
+            out.innerHTML = randomHearts;
+        };
+
+        
+        //하트 갯수 어떻게 받을 지 궁리 중    
+        const numCnt = function print() {
+            hearts = out.innerHTML;
+            //outt.innerHTML = typeof hearts; String 맞는데...
+            heartsCnt = hearts.length/41; //아 하트 하나에 글자 41개치만큼 들어가나봄!;;
+            if(heartsCnt%2 !== 0) {
+                outt.innerHTML = '홀';
+            } else {
+                outt.innerHTML = '짝';
+            }
+        };
+
+        oddBtn.addEventListener('click', print);
+        oddBtn.addEventListener('click', numCnt);
+
+        evenBtn.addEventListener('click', print);
+        evenBtn.addEventListener('click', numCnt);
+        
+    
+    
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+#content1 {
+    box-sizing: border-box;
+    border: solid black 5px;
+    width: 800px;
+    height: 150px;
+    font-size: 50px;
+    padding: 20px;
+}
+
+
+/*all은 기기를 의미하고 max-width는 0~1000px을 의미한다.*/
+@media all and (max-width: 1000px) { /*미디어의 너비가 1000px일 때까지 오렌지 배경*/
+/*all : 모든 기기에 적용되는 미디어 쿼리*/
+    #content1 {
+        background-color: orange;
+    }
+}
+
+
+#flex-box {
+    display : flex;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#flex-box > div {
+    background-color: teal;
+    margin: 6px;
+    height: 100px;
+    font-size: 30px;
+}
+
+/*flex-box내부에서는 위아래 마진이 만났을 때 사라지지 않음*/
+
+
+/*screen은 일반 기기를 의미하고, min-width: 600px은 600px~최대크기를 의미한다.*/
+@media screen and (min-width: 600px) { /*600픽셀 이하에선 스타일이 다 사라짐*/
+    #flex-box {
+        
+        flex-direction: row;
+        padding: 0 3px; /*위아래 빵 좌우 3px*/
+    }
+    
+    #flex-box > div {
+        height: 50px;
+        width: 100px;
+        margin: 6px 3px;
+        background-color: teal;
+        padding: 15px;
+    }    
+}
+
+
+/*이건 완성도를 높이는 작업이라 회사 가서 배워도 되는 부분. 개인페이지에 넣어도 안 넣어도 됨*/

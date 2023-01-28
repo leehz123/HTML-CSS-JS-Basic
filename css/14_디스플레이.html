@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display property</title>
+    <link rel="stylesheet" href="../assets/css/css14.css">
+</head>
+<body>
+    
+    <h3># display property</h3>
+    <ul>
+        <li>해당 요소가 어떻게 보여야 할지 결정하는 속성</li>
+        <li>기본값으로는 inline과 block이 있다</li>
+    </ul>
+
+    <h3># inline 요소의 특징(display : inline)</h3>
+    <!-- 문단 내부에 섞여 있는 요소 -->
+    <ul>
+        <li>문단 내부에서 영역을 지정할 때 사용하는 태그들</li>
+        <li>새 줄에서 시작하지 않고, 해당 요소의 내용만큼 영역을 차지한다</li>
+        <li>padding과 margin을 설정하더라도 고려하지 않는다.</li>
+        <li>잉 설명이 다른데? 코드잇에서는 inline레벨일 때 margin-top과 marginbottom은 적용되지 않지만, <br> 
+            padding은 이와 상관 없이 상하좌우 다 된대</li>
+        <li><a href="https://www.codeit.kr/community/threads/37341">코드잇 설명 주소</a></li>
+        <li>ex> span, b, i(이탤릭), ... </li>
+    </ul>
+
+    <h3># block 요소의 특징 (display : block)</h3>
+    <!-- 문단을 만들기 위한 요소 -->
+    <ul>
+        <li>항상 새 줄에서 시작한다</li>
+        <li>기본적으로 한 줄 전체를 차지한다</li>
+        <li>padding과 margin을 제대로 적용할 수 있다</li>
+        <li>ex> div, p, h1, li, ul, ... </li>
+    </ul>
+
+
+    <p style="border: solid black 2px; text-align: justify;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec volutpat lacinia nisi a interdum. 
+        Vivamus accumsan a enim sed pulvinar. Vivamus sit amet elementum nulla. 
+        Ut vel est diam. 
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+        Lorem ipsum dolor sit amet, 
+        <b style="background: blue; color: white; 
+        padding: 15px; margin: 100px;">consectetur adipiscing elit.</b> 
+        Mauris quis lectus massa. 
+    </p>
+    
+    <p style="border: solid yellow 3px; text-align: justify;">
+        Nulla sollicitudin lacus nisi, sed eleifend dolor rutrum sit amet. Nullam interdum lacus lectus. 
+        Mauris vulputate scelerisque odio nec lobortis. 
+        Nunc dignissim dignissim turpis, sit amet vestibulum elit. 
+        Etiam porttitor erat lacus, non vestibulum lectus pulvinar sit amet. 
+        Nulla facilisi. Donec facilisis lectus diam, eget mattis erat lacinia at. 
+        Ut a viverra arcu. Vestibulum mollis libero felis, vitae ullamcorper neque porta vel.
+    </p>
+
+
+
+    <!-- 여기서는 카멜 말고 바 쓰는게 나음-->
+    <p id="span-box">
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>
+        <span>span4</span>
+        <span>span5</span>
+    </p>
+
+    <div id="div-box">
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+        <div>div4</div>
+        <div>div5</div>
+    </div>
+
+    <hr>
+
+    <h3># display: inline-block</h3>
+    <ul>
+        <li>문단 내에서 글자 취급 받지만 padidng과 margin을 제대로 적용할 수 있는 display</li>
+        <li>inline과 block의 단점을 보완하였다.</li>
+    </ul>
+
+
+    <p style="border: solid black 2px; text-align: justify;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec volutpat lacinia nisi a interdum. 
+        Vivamus accumsan a enim sed pulvinar. Vivamus sit amet elementum nulla. 
+        Ut vel est diam. 
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+        Lorem ipsum dolor sit amet, 
+        <!--display : inline-block 적용-->
+        <b style="display:inline-block; 
+        background: blue; color: white; 
+        padding: 15px; margin: 100px;">consectetur adipiscing elit.</b> 
+        Mauris quis lectus massa. 
+    </p>
+
+
+</body>
+</html>

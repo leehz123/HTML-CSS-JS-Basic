@@ -1,0 +1,59 @@
+
+#shadow1 {
+    text-shadow: 3px 3px 3px black;
+    text-transform: capitalize;
+}
+
+#shadow2 {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-shadow: 1px 1px 3px white, 
+                    2px 2px 4px lime,
+                    3px 3px 15px lightseagreen;
+}
+
+#shadow3 {
+    color: rgb(106, 153, 255);
+    font-family: "Arial Black", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    text-shadow: 10px 10px 3px rgb(106, 153, 255);
+}                
+    
+#shadow4 {
+    /*얘 이상한 테두리 왜 안 없어짐?*/
+    color: #EDEEE9;
+    font-family: "Arial Black", sans-serif;
+    text-shadow: #3E3E40 1px 1px,#3E3E40 -0px 0px,#3E3E40 -1px 1px,#3E3E40 -2px 2px,#3E3E40 -3px 3px,#3E3E40 -4px 4px,#3E3E40 -5px 5px,#3E3E40 -6px 6px,#3E3E40 -7px 7px,#3E3E40 -8px 8px,#3E3E40 -9px 9px,#3E3E40 -10px 10px,#3E3E40 -11px 11px,#3E3E40 -12px 12px,#3E3E40 -13px 13px,#3E3E40 -14px 14px,#3E3E40 -15px 15px,#3E3E40 -16px 16px,#3E3E40 -17px 17px,#3E3E40 -18px 18px,#3E3E40 -19px 19px,#3E3E40 -20px 20px,#3E3E40 -21px 21px,#3E3E40 -22px 22px,#3E3E40 -23px 23px,#3E3E40 -24px 24px,#3E3E40 -25px 25px,#3E3E40 -26px 26px,#3E3E40 -27px 27px,#3E3E40 -28px 28px,#3E3E40 -29px 29px,#3E3E40 -30px 30px,#3E3E40 -31px 31px,#3E3E40 -32px 32px,#3E3E40 -33px 33px,#3E3E40 -34px 34px,#3E3E40 -35px 35px,#3E3E40 -36px 36px,#3E3E40 -37px 37px,#3E3E40 -38px 38px,#3E3E40 -39px 39px,#3E3E40 -40px 40px,#3E3E40 -41px 41px,#3E3E40 -42px 42px,#3E3E40 -43px 43px,#3E3E40 -44px 44px,#3E3E40 -45px 45px,#3E3E40 -46px 46px,#3E3E40 -47px 47px,#3E3E40 -48px 48px,#3E3E40 -49px 49px,#3E3E40 -50px 50px,#3E3E40 -51px 51px,#3E3E40 -52px 52px,#3E3E40 -53px 53px,#3E3E40 -54px 54px,#3E3E40 -55px 55px,#3E3E40 -56px 56px,#3E3E40 -57px 57px,#3E3E40 -58px 58px,#3E3E40 -59px 59px,#3E3E40 -60px 60px,#3E3E40 -61px 61px,#3E3E40 -62px 62px,#3E3E40 -63px 63px,#3E3E40 -64px 64px,#3E3E40 -65px 65px,#3E3E40 -66px 66px,#3E3E40 -67px 67px,#3E3E40 -68px 68px,#3E3E40 -69px 69px;
+}
+
+
+
+#box-shadow1 {
+    font-family: "Arial Black", sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: orange;
+    box-shadow: 1px 1px 5px 5px orange;
+    border-radius: 100px;
+    width: 180px;
+    text-align: center;
+
+}
+
+#box-shadow2 {
+    background-color: rgba(116, 116, 116, 0.5);
+    width: 200px;
+    height:100px;
+    line-height: 95px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(29, 29, 29, 0.5);
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 3px 5px 10px 4px rgba(59, 59, 59, 0.5);
+    border-radius: 20px;
+    transform: translateY(-5px);
+}

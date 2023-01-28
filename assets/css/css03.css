@@ -1,0 +1,6 @@
+/*여기 전체가 style태그 내부라고 생각하면 됨. (여기 전체가 Style Sheet)*/
+
+dt:nth-of-type(3) {
+    color:orange;
+    font-size: 70px;
+}

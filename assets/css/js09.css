@@ -1,0 +1,27 @@
+#under70 th, #under70 td {
+    padding: 3px 5px;
+}
+
+/*id로 부여한 속성이 class로 부여한 속성보다 우선시됨 주의!*/
+#under70 tr:nth-child(even) {
+/* #under70 > tr:nth-child(even) { > 넣으면 안 됨 주의!!!!!!!!!이거땜에 스타일 적용 계속 안 됐었음 아마 id나 class 안의 요소를 선택할 땐 >를 사용하는게 아닌가봄 */
+    background-color: white;
+}
+
+#under70 tr:nth-child(odd) {
+    background-color: skyblue;   
+}
+
+
+#under70 tr:first-child {
+    background: dodgerblue;
+}
+
+#under70 .danger {
+    color: red;
+    font-weight: 900;
+}
+
+#under70 .safe {
+    color: black;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 다루기</title>
+    <link rel="stylesheet" href="../assets/css/js06.css">
+</head>
+<body>
+
+
+    <h3># Javascript Array</h3>
+    <div id="out"></div>
+    
+    <script>
+        const coffees = ['Americano', 'Espresso', 'Cafe Latte', 'Cafe Mocha']
+
+        print(coffees);
+        //배열을 그냥 출력하면 Americano,Espresso,Cafe Latte,Cafe Mocha
+
+        // join : 배열의 요소들을 원하는 구분자로 이어붙인 문자열을 반환
+        print('join result: ' + coffees.join('/'));
+
+        //pop : 배열의 맨 뒤 값을 꺼내오면서 제거
+        for(i = 0; i < 4; ++i) {
+            print('popped! ' + coffees.pop());
+            print('after pop: ' + coffees);
+        }
+
+        //push : 배열의 맨 뒤에 값을 추가
+        coffees.push('Green Tea');
+        coffees.push('Red Tea');
+        coffees.push('Americano', 'Americano', 'Americano', 'Americano');
+        //coffees.push(['Cafe Latte', 'Cafe Mocha']); 이거는 배열 하나가 통으로 들어가버림!
+        //컴퍼레이터 돌릴 때 string값 말고도 배열이 섞여 있으면 object가 섞여서 제대로 정렬이 안 됨
+        print(coffees);
+
+
+        // shift: 배열의 맨 앞의 값을 꺼내면서 제거
+        for(i = 0; i < 3; ++i) {
+            print('shift: ' + coffees.shift());
+            print('after shift: ' + coffees);
+        }
+
+
+        //unshift: 배열의 맨 앞에 값을 추가한다. 
+        for(i = 0; i < 5; ++i) {
+            coffees.unshift('Red Tea');
+            coffees.unshift('Green Tea');
+            coffees.unshift('Fanta');
+        }
+        print(coffees);
+
+        //배열의 요소 삭제하기 
+        delete coffees[2];
+        delete coffees[7];
+        delete coffees[13];
+        print('after delete: ' + coffees);
+        //Fanta,,Red Tea 이런 식으로 값은 삭제되고 공간은 남아 있음
+
+
+
+        let index = 0;
+        for(coffee in coffees) {
+            print(`coffees[${index++}]: ${coffee}`);
+            //print(`coffee[${i}]: ${coffees[i]}`);
+        }
+        for(i in coffees) {
+            print(`coffee[${i}]: ${coffees[i]}`);
+        }
+
+
+        //slice : 원하는 만큼 자른 배열 인스턴스를 반환
+        const slicedCoffee = coffees.slice(2,9);
+        print('sliced: ' + slicedCoffee);
+        
+        //sort : 해당 배열을 정렬한다. (기본 오름차순)
+        coffees.sort();
+        print(coffees);
+        
+        //자바의 Comparator처럼 사용할 수도 있다.
+        //자스는 문자열끼리 비교연산이 가능하다. 올ㅋ 
+        print('apple' < 'banana');
+        print('apple' > 'airplane');
+
+        //localeCompare() :두 문자열을 사전순으로 비교하는 메서드
+        //print('apple'.localeCompare('apple'));
+        const myComparator = function(a, b) { //comparator : -1 , 0, 1을 리턴해야 함
+            return b.localeCompare(a);//역순정렬
+        }
+
+
+        coffees.sort(myComparator); //sort()를 쓸 때 myComparator를 사용
+        print('after comparator sort: ' + coffees);
+
+
+        function print(obj) {
+            document.getElementById('out').innerHTML += '$ ' + obj + '<br>';
+        }
+
+
+        //연습문제. 다음 책들을 출판년도 기준 내림차순으로 정렬하여 출력해보세요
+        //(출판년도가 같은 경우 이름순으로 오름차순 정렬)
+        const books = [
+            {name: '자바의 정석', author:'남궁성', price:40000, pub_year:2022},
+            {name: '정보처리산업기사-필기', author:'시나공', price:25000, pub_year:2021},
+            {name: '정보처리산업기사-실기', author:'시나공', price:18000, pub_year:2021},
+            {name: '정보처리산업기사-길기', author:'시나공', price:18000, pub_year:2021},
+            {name: '컴퓨터활용능력 2급 필기', author:'김철수', price:22000, pub_year:1998},
+            {name: '워드프로세서 2급 실기', author:'박찬호', price:12000, pub_year:2001},
+            {name: '워드프로세서 2급 필기', author:'박찬호', price:12000, pub_year:2005}
+        ];
+        
+        const Comparator1 = function(book1, book2) { 
+            //내가 푼 거.
+            if(book2.pub_year!== book1.pub_year) {
+                return book2.pub_year-book1.pub_year;//숫자는 빼기로 정렬 
+            }
+            return book1.name.localeCompare(book2.name); 
+            //문자열은 localeCompare()로 비교(자바는 compare이 다 있었는데 자스에서는 자바랑 다르게 찾아야 됨. 아 localeCompare()이 있구나 이렇게)     
+ 
+            //정답. 아놔 이게 더 간단하자나! 삼항연산자 쓰라고
+            //book2.pub_year == book1.pub_year ? book1.name.localeCompare(book2.name) : book2.pub_year - book1.pub_year;
+        }
+
+        books.sort(Comparator1);
+        for(book of books) {
+            print(`[${book.name}, ${book.pub_year}]`);
+        }
+
+    </script>
+
+</body>
+</html>
